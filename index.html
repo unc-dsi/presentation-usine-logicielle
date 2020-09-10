@@ -31,14 +31,7 @@
 				<section>
 					<h1>Qui est Arnaud Brunet ?</h1>
 					<ul>
-						<li>Ingénieur d'études en : 
-							<ul>
-								<li>déploiement,</li>
-								<li>développement et</li>
-								<li>administration d’applications de gestion</li>
-							</ul>
-						</li>
-						<li>Dev + Ops = DevOps</li>
+						<li>Ingénieur d'études en déploiement, développement et administration d’applications de gestion</li>
 						<li>à la <abbr title="Direction du Numérique et des Systèmes d'Information">DNSI</abbr> de l'UNC <small>(<a href="mailto:arnaud.brunet@unc.nc">arnaud.brunet@unc.nc)</small></a></li>
 						<li>Meetups:
 							<ul>
@@ -46,7 +39,7 @@
 								<li><a href="https://www.meetup.com/fr-FR/JavaScript-Nouvelle-Caledonie/">Javascript Nouvelle-Calédonie</a></li>
 							</ul>
 						</li>
-						<li>Association Pour l'Usage des Logiciels Libres <small>(<a href="https://apull.asso.nc">apull.asso.nc</a>)</small></li>
+						<li>Association Logiciels Libres <small>(<a href="https://apull.asso.nc">apull.asso.nc</a>)</small></li>
 						<li>Site Internet <small>(<a href="https://gronono.fr">gronono.fr</a>)</small></li>
 					</ul>
 				</section>
@@ -62,35 +55,87 @@
 							</ul>
 						</li>
 						<li>Carte Sup' : cartesup@unc.nc</li>
+						<li>Questions pédagogies : SP ou RP</li>
 					</ul>
 				</section>
 
 				<section>
 					<h1>Usine logicielle ?</h1>
 					<img src="assets/factory.png" width="90%" />
+					<p class="left">Repose sur 4 pilliers :</p>
+					<ul>
+						<li>Git & Gitlab</li>
+						<li>Gitlab-CI</li>
+						<li>Docker</li>
+						<li>Kubernetes</li>
+					</ul>
 				</section>
 
 				<section>
-					<h1>Garanties de notre usine</h1>
+					<h1>La porte d'entrée : Git & Gitlab</h1>
 					<ul>
-						<li>Le code source déployé est versionné</li>
+						<li>Travail en équipe</li>
+						<li>Historique</li>
+						<li>Source de vérité</li>
+					</ul>
+					<img src="assets/Branch_full.svg" width="80%"/>
+				</section>
+
+				<section>
+					<h1>L'automate : Gitlab-CI</h1>
+					<ul>
+						<li>Découpage en étapes : les stages</li>
+						<li>Scripting à chaque stages</li>
+						<li>Chaque stage s'execute dans un environnement cloisonné</li>
+					</ul>
+					<img src="assets/ci-cd-test-deploy-illustration_2x.png" width="70%"/>
+				</section>
+
+				<section>
+					<h1>Le cloisonnement : Docker</h1>
+					<ul>
+						<li>Recette de création d'un environnement : les images</li>
+						<li>Chaque environnement (container) est isolé de l'hôte</li>
+					</ul>
+					<img src="assets/docker1.png" width="80%"/>
+				</section>
+
+				<section>
+					<h1>Le chef d'orchestre : Kubernetes</h1>
+					<ul>
+						<li>Gère les containers sur plusieurs serveurs</li>
+						<li>Paradigme déclaratif <small>(yaml)</small></li>
+					</ul>
+					<img src="assets/guide-k8s-1-overview.png" width="90%"/>
+				</section>
+
+				<section>
+					<h1>Le petit dernier : Flux</h1>
+					<ul>
+						<li>Déclaration du cluster dans GIT</li>
+						<li>Synchro Git / K8S</li>
+					</ul>
+					<img src="assets/flux-gitops.png" width="90%"/>
+				</section>
+
+				<section>
+					<h1>Le nouveau né : Prometheus</h1>
+					<ul>
+						<li>Système de monitoring</li>
+						<li>Système d'alertes</li>
+					</ul>
+					<img src="assets/monitoring.png" width="80%" />
+				</section>
+
+				<section>
+					<h1>Les avantages de l'usine</h1>
+					<ul>
 						<li>Lien entre l'application déployée et le code source</li>
 						<li>Le code déployé passe les tests automatisés</li>
 						<li>Les environnements de compilation et d'execution sont auto-documentés</li>
 						<li>Si l'application plante, elle est automatiquement relancée</li>
 						<li>Si un serveur plante, l'application est migrée sur un autre serveur</li>
-						<li>Monitoring par application</li>
-					</ul>
-				</section>
-
-				<section>
-					<h1>Les outils utilisés</h1>
-					<ul>
-						<li>Gitlab comme serveur Git</li>
-						<li>Gitlab-CI comme moyen d'automatisation</li>
-						<li>Docker comme environnement d'éxecution</li>
-						<li>Kubernetes comme orchestrateur d'execution</li>
-						<li>Fluxcd pour faire la synchro GIT/K8S</li>
+						<li>Monitoring / système d'alertes</li>
 					</ul>
 				</section>
 
@@ -113,51 +158,22 @@
 				</section>
 
 				<section>
-					<h1>Git et Gitlab</h1>
+					<h1>Kubernetes en production</h1>
 					<ul>
-						<li>Historique du code</li>
-						<li>Source de vérité</li>
-						<li>Système de Merge-Request : relecture</li>
-						<li>Équivalent à Github</li>
+						<li>en place depuis juin 2019</li>
+						<li>montée en compétences progressives</li>
+						<li>15 applications dont 6 métiers</li>
+						<li>réparties sur 3 noeuds</li>
+						<li>un peu moins 40 Go de données</li>
 					</ul>
 				</section>
 
 				<section>
-					<h1>Gitlab-CI</h1>
+					<h1>L'avenir</h1>
 					<ul>
-						<li>Intégré à Gitlab</li>
-						<li>Principal outil d'automatisation</li>
-						<li>Éxecute des scripts dans des stages</li>
-						<li>Fonctionne via des runners</li>
-						<li>Les runners tournent dans K8S</li>
-					</ul>
-				</section>
-
-				<section>
-					<h1>Docker</h1>
-					<ul>
-						<li>Environnent d'execution indépendant la machine</li>
-						<li>Images = recette pour créer l'environnement</li>
-						<li>Tags identiques à ceux de GIT</li>
-					</ul>
-				</section>
-
-				<section>
-					<h1>Kubernetes</h1>
-					<ul>
-						<li>Orchestrateur de container Docker</li>
-						<li>Abstrait la notion de serveur</li>
-						<li>Configuration descriptive</li>
-						<li>Extensible</li>
-					</ul>
-				</section>
-
-				<section>
-					<h1>Fluxcd</h1>
-					<ul>
-						<li>Surveille un repo GIT</li>
-						<li>Met à jour le cluster dès que nécessaire</li>
-						<li>La vérité est dans Git</li>
+						<li>Intégration des applications Cocktail</li>
+						<li>Intégration des applications PHP : ENT, Moddle, GroupeNotes, ...</li>
+						<li>Meilleur solution de stockage basée sur VMWare</li>
 					</ul>
 				</section>
 
@@ -183,13 +199,8 @@
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 		</script>

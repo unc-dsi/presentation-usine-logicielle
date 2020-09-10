@@ -7,7 +7,7 @@ Elle est basée sur le framework [revealjs](https://revealjs.com/).
 ## Lancer la présentation
 
 ```
-git clone
+git clone https://github.com/unc-dsi/presentation-usine-logicielle.git
 npm install
 npm start
 ```
