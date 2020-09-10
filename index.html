@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Usine logicielle à l'UNC</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/unc.css" id="theme">
+		
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<span id="title">L'usine logicielle de l'UNC</span>
+				<img src="assets/unc.svg" id="logo" />
+
+				<section>
+					<h1>L'usine logicielle de l'UNC</h1>
+					<div class="center">
+						<img src="assets/loading.png"/>
+					</div>
+					<p class="right">
+						<small>Par Arnaud Brunet</small>
+					</p>
+				</section>
+
+				<section>
+					<h1>Qui est Arnaud Brunet ?</h1>
+					<ul>
+						<li>Ingénieur d'études en : 
+							<ul>
+								<li>déploiement,</li>
+								<li>développement et</li>
+								<li>administration d’applications de gestion</li>
+							</ul>
+						</li>
+						<li>Dev + Ops = DevOps</li>
+						<li>à la <abbr title="Direction du Numérique et des Systèmes d'Information">DNSI</abbr> de l'UNC <small>(<a href="mailto:arnaud.brunet@unc.nc">arnaud.brunet@unc.nc)</small></a></li>
+						<li>Meetups:
+							<ul>
+								<li><a href="https://www.meetup.com/fr-FR/Docker-Noumea/">Docker Nouméa</a></li>
+								<li><a href="https://www.meetup.com/fr-FR/JavaScript-Nouvelle-Caledonie/">Javascript Nouvelle-Calédonie</a></li>
+							</ul>
+						</li>
+						<li>Association Pour l'Usage des Logiciels Libres <small>(<a href="https://apull.asso.nc">apull.asso.nc</a>)</small></li>
+						<li>Site Internet <small>(<a href="https://gronono.fr">gronono.fr</a>)</small></li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Organisation de la DNSI</h1>
+					<ul>
+						<li>Trois pôles
+							<ul>
+								<li>Assistance <small>911@unc.nc</small></li>
+								<li>Système et réseau</li>
+								<li>Infogestion <small>dsi-infogestion@unc.nc</small></li>
+							</ul>
+						</li>
+						<li>Carte Sup' : cartesup@unc.nc</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Usine logicielle ?</h1>
+					<img src="assets/factory.png" width="90%" />
+				</section>
+
+				<section>
+					<h1>Garanties de notre usine</h1>
+					<ul>
+						<li>Le code source déployé est versionné</li>
+						<li>Lien entre l'application déployée et le code source</li>
+						<li>Le code déployé passe les tests automatisés</li>
+						<li>Les environnements de compilation et d'execution sont auto-documentés</li>
+						<li>Si l'application plante, elle est automatiquement relancée</li>
+						<li>Si un serveur plante, l'application est migrée sur un autre serveur</li>
+						<li>Monitoring par application</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Les outils utilisés</h1>
+					<ul>
+						<li>Gitlab comme serveur Git</li>
+						<li>Gitlab-CI comme moyen d'automatisation</li>
+						<li>Docker comme environnement d'éxecution</li>
+						<li>Kubernetes comme orchestrateur d'execution</li>
+						<li>Fluxcd pour faire la synchro GIT/K8S</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Le workflow de l'usine</h1>
+					<img src="assets/workflow.png" width="90%" />
+				</section>
+
+				<section>
+					<h1>Demonstration</h1>
+					<ul>
+						<li>Modification d'un projet simple</li>
+						<li>Configuration locale vs configuration déployée</li>
+						<li>Sur le push : compilation + déploiement en intégration</li>
+						<li>Sur un tag : création d'une release</li>
+						<li>Action manuelle : déploiement en test</li>
+						<li>Plantage de l'application</li>
+						<li>Monitoring</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Git et Gitlab</h1>
+					<ul>
+						<li>Historique du code</li>
+						<li>Source de vérité</li>
+						<li>Système de Merge-Request : relecture</li>
+						<li>Équivalent à Github</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Gitlab-CI</h1>
+					<ul>
+						<li>Intégré à Gitlab</li>
+						<li>Principal outil d'automatisation</li>
+						<li>Éxecute des scripts dans des stages</li>
+						<li>Fonctionne via des runners</li>
+						<li>Les runners tournent dans K8S</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Docker</h1>
+					<ul>
+						<li>Environnent d'execution indépendant la machine</li>
+						<li>Images = recette pour créer l'environnement</li>
+						<li>Tags identiques à ceux de GIT</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Kubernetes</h1>
+					<ul>
+						<li>Orchestrateur de container Docker</li>
+						<li>Abstrait la notion de serveur</li>
+						<li>Configuration descriptive</li>
+						<li>Extensible</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Fluxcd</h1>
+					<ul>
+						<li>Surveille un repo GIT</li>
+						<li>Met à jour le cluster dès que nécessaire</li>
+						<li>La vérité est dans Git</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Questions ?</h1>
+					<div class="center">
+						<img src="assets/questions.jpg">
+					</div>
+				</section>
+
+				<section>
+					<h1>Merci</h1>
+					<ul>
+						<li><a href="https://github.com/unc-dsi/presentation-usine-logicielle">https://github.com/unc-dsi/presentation-usine-logicielle</a></li>
+						<li>arnaud.brunet@unc.nc</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
